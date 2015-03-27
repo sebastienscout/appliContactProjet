@@ -56,8 +56,69 @@ public class ContactDbAdapter {
         }
     }
 
-    public TachesDbAdapter(Context ctx) {
+    public ContactDbAdapter(Context ctx) {
         this.mCtx = ctx;
+    }
+
+    public ContactDbAdapter open() throws SQLException {
+        mDbHelper = new DatabaseHelper(mCtx);
+        mDb = mDbHelper.getWritableDatabase();
+        return this;
+    }
+
+    //fermeture de la BD
+    public void close() {
+        mDbHelper.close();
+    }
+
+    //creation d'un contact
+    public long createTache(String nom, String prenom,String telephone,String mail) {
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(KEY_ROWNOM, nom);
+        initialValues.put(KEY_ROWPRENOM, prenom);
+        initialValues.put(KEY_ROWNUM, telephone);
+        initialValues.put(KEY_ROWMAIL, mail);
+        return mDb.insert(DATABASE_TABLE, null, initialValues);
+    }
+
+    //suppression dans la base de données retourne true si la suppression a bien été faite
+    public boolean deleteContact(long rowId) {
+
+        return mDb.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
+    }
+
+    public boolean deleteAll(){
+        return mDb.delete(DATABASE_TABLE,KEY_ROWID +"<>"+ 0,null)>0;
+    }
+
+    //select *
+    public Cursor fetchAll() {
+
+        return mDb.query(DATABASE_TABLE, new String[] {KEY_ROWID,KEY_ROWNOM,KEY_ROWPRENOM,KEY_ROWNUM,KEY_ROWMAIL}, null, null, null, null, null);
+    }
+
+    //selection d'une unique note
+    public Cursor fetch(long rowId) throws SQLException {
+
+        Cursor mCursor =
+
+                mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,KEY_ROWNOM,KEY_ROWPRENOM,KEY_ROWNUM,KEY_ROWMAIL} , KEY_ROWID + "=" + rowId, null,
+                        null, null, null, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+
+    }
+
+    //maj d'une note
+    public boolean updateTache(long rowId, String nom, String prenom,String telephone,String mail) {
+        ContentValues args = new ContentValues();
+        args.put(KEY_ROWNOM, nom);
+        args.put(KEY_ROWPRENOM, prenom);
+        args.put(KEY_ROWNUM, telephone);
+        args.put(KEY_ROWMAIL, mail);
+        return mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
     }
 
 

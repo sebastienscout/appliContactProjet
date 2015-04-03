@@ -1,5 +1,7 @@
 package projet.listecontact;
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -58,8 +60,30 @@ public class AjoutContactFragment extends Fragment{
 
     //code OK
     public void creation(){
-        mdbHelper.createContact(nom.getText().toString(),prenom.getText().toString(),tel.getText().toString(),email.getText().toString(),adresse);
-    }
+        //avant d'inserer on teste si les inputs requis (nom et telephone) sont nuls
+        if(!(nom.getText().toString().trim().length()==0)&&!(tel.getText().toString().trim().length()==0)){
+            mdbHelper.createContact(nom.getText().toString(), prenom.getText().toString(), tel.getText().toString(), email.getText().toString(), adresse);
+            this.getActivity().recreate();//on recrée l'activité si le contact est créé
+        }
+        else{
+            // Création d'un AlertDialog d'interpellation
+            AlertDialog.Builder ad = new AlertDialog.Builder(getActivity());
+            // Choix du titre
+            ad.setTitle(R.string.titre_err);
+            // mise en place du bouton de validation
+            ad.setPositiveButton(R.string.bouton_recommencer,
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // pas d'actions particulieres sur le clic
+                        }
+                    }
+            );
+            // rendre le dialog annulable (en cliquant en dehors)
+            ad.setCancelable(true);
+            // faire apparaître le dialog
+            ad.show();
+        } }
 
 
 

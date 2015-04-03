@@ -94,7 +94,7 @@ public class ContactDbAdapter {
     //select *
     public Cursor fetchAll() {
 
-        return mDb.query(DATABASE_TABLE, new String[] {KEY_ROWID,KEY_ROWNOM,KEY_ROWPRENOM,KEY_ROWNUM,KEY_ROWMAIL}, null, null, null, null, null);
+        return mDb.query(DATABASE_TABLE, new String[] {KEY_ROWID,KEY_ROWNOM,KEY_ROWPRENOM,KEY_ROWNUM,KEY_ROWMAIL}, null, null, null, null,"upper("+KEY_ROWNOM +") ASC");
     }
 
     //selection d'un contact

@@ -15,6 +15,10 @@ public class AjoutContactFragment extends Fragment{
     private EditText prenom;
     private EditText tel;
     private EditText email;
+    private EditText nrue;
+    private EditText ville;
+    private EditText cp;
+    private String adresse;
     private ContactDbAdapter mdbHelper;
     private Button monButton;
 
@@ -28,7 +32,10 @@ public class AjoutContactFragment extends Fragment{
         prenom=(EditText) rootView.findViewById(R.id.prenom);
         tel=(EditText) rootView.findViewById(R.id.telephone);
         email=(EditText) rootView.findViewById(R.id.mail);
-
+        nrue=(EditText) rootView.findViewById(R.id.localisation);
+        ville=(EditText) rootView.findViewById(R.id.ville);
+        cp=(EditText) rootView.findViewById(R.id.cp);
+        adresse=new String(nrue.getText().toString()+ville.getText().toString()+cp.getText().toString());
         monButton = (Button) rootView.findViewById(R.id.valider);
 
         monButton.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +56,7 @@ public class AjoutContactFragment extends Fragment{
 
     //code OK
     public void creation(){
-        mdbHelper.createContact(nom.getText().toString(),prenom.getText().toString(),tel.getText().toString(),email.getText().toString());
+        mdbHelper.createContact(nom.getText().toString(),prenom.getText().toString(),tel.getText().toString(),email.getText().toString(),adresse);
     }
 
 

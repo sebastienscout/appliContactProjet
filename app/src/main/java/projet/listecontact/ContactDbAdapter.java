@@ -19,6 +19,7 @@ public class ContactDbAdapter {
     public static final String KEY_ROWPRENOM = "_prenom";
     public static final String KEY_ROWNUM = "_telephone";
     public static final String KEY_ROWMAIL = "_email";
+    public static final String KEY_ROWADRESSE="_adresse";
 
     // définition de la BD
     private static final String TAG = "Contacts";
@@ -26,7 +27,7 @@ public class ContactDbAdapter {
     private SQLiteDatabase mDb;
 
     private static final String DATABASE_CREATE =
-            "create table contacts (_id integer primary key autoincrement, _nom text not null,_prenom text not null,_telephone text not null,_email text not null);";
+            "create table contacts (_id integer primary key autoincrement, _nom text not null,_prenom text,_telephone text not null,_email text,_adresse text);";
 
     private static final String DATABASE_NAME = "contacts_db";
     private static final String DATABASE_TABLE = "contacts";
@@ -72,12 +73,13 @@ public class ContactDbAdapter {
     }
 
     //creation d'un contact
-    public long createContact(String nom, String prenom,String telephone,String mail) {
+    public long createContact(String nom, String prenom,String telephone,String mail,String adresse) {
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_ROWNOM, nom);
         initialValues.put(KEY_ROWPRENOM, prenom);
         initialValues.put(KEY_ROWNUM, telephone);
         initialValues.put(KEY_ROWMAIL, mail);
+        initialValues.put(KEY_ROWADRESSE, adresse);
         return mDb.insert(DATABASE_TABLE, null, initialValues);
     }
 
@@ -94,7 +96,7 @@ public class ContactDbAdapter {
     //select *
     public Cursor fetchAll() {
 
-        return mDb.query(DATABASE_TABLE, new String[] {KEY_ROWID,KEY_ROWNOM,KEY_ROWPRENOM,KEY_ROWNUM,KEY_ROWMAIL}, null, null, null, null, null);
+        return mDb.query(DATABASE_TABLE, new String[] {KEY_ROWID,KEY_ROWNOM,KEY_ROWPRENOM,KEY_ROWNUM,KEY_ROWMAIL,KEY_ROWADRESSE}, null, null, null, null, null);
     }
 
     //selection d'un contact
@@ -102,7 +104,7 @@ public class ContactDbAdapter {
 
         Cursor mCursor =
 
-                mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,KEY_ROWNOM,KEY_ROWPRENOM,KEY_ROWNUM,KEY_ROWMAIL} , KEY_ROWID + "=" + rowId, null,
+                mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,KEY_ROWNOM,KEY_ROWPRENOM,KEY_ROWNUM,KEY_ROWMAIL,KEY_ROWADRESSE} , KEY_ROWID + "=" + rowId, null,
                         null, null, null, null);
         if (mCursor != null) {
             mCursor.moveToFirst();
@@ -112,12 +114,13 @@ public class ContactDbAdapter {
     }
 
     //maj d'un contact
-    public boolean updateContact(long rowId, String nom, String prenom,String telephone,String mail) {
+    public boolean updateContact(long rowId, String nom, String prenom,String telephone,String mail,String adresse) {
         ContentValues args = new ContentValues();
         args.put(KEY_ROWNOM, nom);
         args.put(KEY_ROWPRENOM, prenom);
         args.put(KEY_ROWNUM, telephone);
         args.put(KEY_ROWMAIL, mail);
+        args.put(KEY_ROWADRESSE, adresse);
         return mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null) > 0;
     }
 

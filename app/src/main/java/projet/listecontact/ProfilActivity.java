@@ -38,6 +38,7 @@ public class ProfilActivity extends Activity {
             prenomView.setText(extras.getString("prenom"));
             telView.setText(extras.getString("tel"));
             mailView.setText(extras.getString("mail"));
+            adresseView.setText(extras.getString("adresse"));
         }
     }
 

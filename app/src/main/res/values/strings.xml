@@ -19,5 +19,7 @@
     <string name="titre_alertdialog_confirm">Voulez vous supprimer le contact?</string>
     <string name="bouton_alertdialog_ok">Oui</string>
     <string name="bouton_alertdialog_annuler">Non</string>
+    <string name="titre_err">Les champs nom et téléphone sont obligatoires</string>
+    <string name="bouton_recommencer">Recommencer</string>
 
 </resources>

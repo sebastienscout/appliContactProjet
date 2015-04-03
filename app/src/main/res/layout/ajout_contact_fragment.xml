@@ -109,7 +109,8 @@
                 android:layout_height="wrap_content"
                 android:text="Creer"
                 android:id="@+id/valider"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:onClick="creation"/>
         </TableRow>
     </TableLayout>
 

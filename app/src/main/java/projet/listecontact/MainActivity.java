@@ -6,6 +6,9 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 
 public class MainActivity extends Activity {
@@ -14,6 +17,8 @@ public class MainActivity extends Activity {
 
     Fragment listeContactsFragment = new ListeContactsFragment();
     Fragment ajoutContactFragment = new AjoutContactFragment();
+
+
 
     @SuppressWarnings("deprecation")
     @Override
@@ -34,7 +39,13 @@ public class MainActivity extends Activity {
         tabAjoutContact = actionBar.newTab().setText("Ajouter contact");
         tabAjoutContact.setTabListener(new TabListener(ajoutContactFragment));
         actionBar.addTab(tabAjoutContact);
+
+
+
     }
+
+
+
 
 
     @Override

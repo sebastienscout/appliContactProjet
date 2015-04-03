@@ -26,7 +26,7 @@ public class ContactDbAdapter {
     private SQLiteDatabase mDb;
 
     private static final String DATABASE_CREATE =
-            "create table taches (_id integer primary key autoincrement, _nom text not null,_prenom text not null,_telephone text not null,_email text not null);";
+            "create table contacts (_id integer primary key autoincrement, _nom text not null,_prenom text not null,_telephone text not null,_email text not null);";
 
     private static final String DATABASE_NAME = "contacts_db";
     private static final String DATABASE_TABLE = "contacts";
@@ -72,7 +72,7 @@ public class ContactDbAdapter {
     }
 
     //creation d'un contact
-    public long createTache(String nom, String prenom,String telephone,String mail) {
+    public long createContact(String nom, String prenom,String telephone,String mail) {
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_ROWNOM, nom);
         initialValues.put(KEY_ROWPRENOM, prenom);

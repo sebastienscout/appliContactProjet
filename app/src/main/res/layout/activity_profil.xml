@@ -52,7 +52,8 @@
             android:id="@+id/profilTelephoneLabel"
             android:textColor="#000"
             android:textSize="20sp"
-            android:layout_marginTop="30px" />
+            android:layout_marginTop="30px"
+            android:layout_marginBottom="30px" />
 
         <View
         android:layout_width="250dp"
@@ -115,26 +116,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="30 rue de la Cathédrale"
+            android:text="Adresse"
             android:id="@+id/profilAdresse"
-            android:textColor="#000"
-            android:textSize="15sp"
-            android:layout_marginTop="20px"
-            android:layout_marginLeft="30px" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Boulogne"
-            android:id="@+id/profilVille"
-            android:textColor="#000"
-            android:textSize="15sp"
-            android:layout_marginTop="20px"
-            android:layout_marginLeft="30px" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="62200"
-            android:id="@+id/profilCP"
             android:textColor="#000"
             android:textSize="15sp"
             android:layout_marginTop="20px"

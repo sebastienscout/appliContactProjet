@@ -1,10 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-       xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_modify"
+        android:id="@+id/menu_enregistrer"
         android:icon="@drawable/ic_action_settings"
         app:showAsAction="always"
-        android:title="@string/menu_modifier"/>
+        android:title="@string/enregistrer"/>
 
 </menu>

@@ -1,6 +1,7 @@
 package projet.listecontact;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,7 +9,7 @@ import android.widget.TextView;
 
 public class ProfilActivity extends Activity {
 
-    private TextView nomView, prenomView, telView, mailView, adresseView, villeView, cpView;
+    private TextView nomView, prenomView, telView, mailView, adresseView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,6 @@ public class ProfilActivity extends Activity {
         telView = (TextView)findViewById(R.id.profilTelephone);
         mailView = (TextView)findViewById(R.id.profilMail);
         adresseView = (TextView)findViewById(R.id.profilAdresse);
-        villeView = (TextView)findViewById(R.id.profilVille);
-        cpView = (TextView)findViewById(R.id.profilCP);
 
         //On recupère les données passées avec le intent
         Bundle extras = getIntent().getExtras();
@@ -47,7 +46,12 @@ public class ProfilActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.menu_modify:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 

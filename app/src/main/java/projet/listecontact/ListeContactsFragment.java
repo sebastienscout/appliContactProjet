@@ -36,11 +36,20 @@ public class ListeContactsFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(liste_contacts_fragment, null);
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         //dbHelper
         mdbHelper = new ContactDbAdapter(this.getActivity());
         mdbHelper.open();
         fillData();
-        return rootView;
+
+        ListView lv = getListView();
+        registerForContextMenu(lv);
     }
 
     private void fillData(){
@@ -55,7 +64,6 @@ public class ListeContactsFragment extends ListFragment {
         setListAdapter(contacts);
     }
 
-
     public void onListItemClick (ListView l, View v, int position, long id){
         //On utilise un cursor pour chercher le contact avec l'id recherchée
         Cursor c = mdbHelper.fetch(id);
@@ -67,7 +75,14 @@ public class ListeContactsFragment extends ListFragment {
         adresseContactSelected=c.getString(c.getColumnIndex("_adresse"));
         idl= new Long(c.getInt(c.getColumnIndex("_id")));
 
-        registerForContextMenu(v);
+        //Création d'un itent qui passe les valeurs de la BDD à la page profil
+        Intent intent = new Intent(getActivity(), ProfilActivity.class);
+        intent.putExtra("nom", nomContactSelected);
+        intent.putExtra("prenom", prenomContactSelected);
+        intent.putExtra("tel", telContactSelected);
+        intent.putExtra("mail", mailContactSelected);
+        intent.putExtra("adresse", adresseContactSelected);
+        startActivity(intent);
     }
 
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -82,16 +97,12 @@ public class ListeContactsFragment extends ListFragment {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
-            //voir contact
-            case R.id.see:
-                //Création d'un itent qui passe les valeurs de la BDD à la page profil
-                Intent intent = new Intent(getActivity(), ProfilActivity.class);
-                intent.putExtra("nom", nomContactSelected);
-                intent.putExtra("prenom", prenomContactSelected);
-                intent.putExtra("tel", telContactSelected);
-                intent.putExtra("mail", mailContactSelected);
-                startActivity(intent);
-                break;
+            //localiser
+            case R.id.location:
+                Uri rechercheLocation = Uri.parse("geo:0,0?q="+adresseContactSelected);
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, rechercheLocation);
+                startActivity(mapIntent);
+                return true;
 
             case R.id.call:
                 Uri uriCall = Uri.parse("tel:"+telContactSelected.trim());

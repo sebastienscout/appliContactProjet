@@ -20,7 +20,6 @@ public class AjoutContactFragment extends Fragment{
     private EditText numrue;
     private EditText ville;
     private EditText cp;
-    private String adresse;
 
     private ContactDbAdapter mdbHelper;
     private Button monButton;
@@ -30,17 +29,21 @@ public class AjoutContactFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.ajout_contact_fragment, null);
-        //instanciation des elements du formulaire
-        nom= (EditText) rootView.findViewById(R.id.nom);
-        prenom=(EditText) rootView.findViewById(R.id.prenom);
-        tel=(EditText) rootView.findViewById(R.id.telephone);
-        email=(EditText) rootView.findViewById(R.id.mail);
-        numrue=(EditText) rootView.findViewById(R.id.localisation);
-        ville=(EditText) rootView.findViewById(R.id.ville);
-        cp=(EditText) rootView.findViewById(R.id.cp);
-        adresse=new String(numrue.getText().toString()+" "+ville.getText().toString()+" "+cp.getText().toString());
+        return rootView;
+    }
 
-        monButton = (Button) rootView.findViewById(R.id.valider);
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        //instanciation des elements du formulaire
+        nom= (EditText) view.findViewById(R.id.nom);
+        prenom=(EditText) view.findViewById(R.id.prenom);
+        tel=(EditText) view.findViewById(R.id.telephone);
+        email=(EditText) view.findViewById(R.id.mail);
+        numrue=(EditText) view.findViewById(R.id.localisation);
+        ville=(EditText) view.findViewById(R.id.ville);
+        cp=(EditText) view.findViewById(R.id.cp);
+
+        monButton = (Button) view.findViewById(R.id.valider);
 
         monButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,17 +55,15 @@ public class AjoutContactFragment extends Fragment{
 
         //dbHelper
         mdbHelper=new ContactDbAdapter(this.getActivity());
-//        mdbHelper.close();
         mdbHelper.open();
         System.out.println("attr"+nom+prenom+tel+email+mdbHelper);
-        return rootView;
     }
 
     //code OK
     public void creation(){
         //avant d'inserer on teste si les inputs requis (nom et telephone) sont nuls
         if(!(nom.getText().toString().trim().length()==0)&&!(tel.getText().toString().trim().length()==0)){
-            mdbHelper.createContact(nom.getText().toString(), prenom.getText().toString(), tel.getText().toString(), email.getText().toString(), adresse);
+            mdbHelper.createContact(nom.getText().toString(), prenom.getText().toString(), tel.getText().toString(), email.getText().toString(), numrue.getText().toString()+" "+ville.getText().toString()+" "+cp.getText().toString());
             this.getActivity().recreate();//on recrée l'activité si le contact est créé
         }
         else{

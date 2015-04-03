@@ -42,7 +42,8 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_marginLeft="30px">
+        android:layout_marginLeft="30px"
+        android:id="@+id/mainProfilLayout">
 
         <TextView
             android:layout_width="wrap_content"

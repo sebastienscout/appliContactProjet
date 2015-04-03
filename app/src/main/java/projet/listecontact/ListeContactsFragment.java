@@ -26,7 +26,7 @@ public class ListeContactsFragment extends ListFragment {
         fillData();
         return rootView;
     }
-
+    @SuppressWarnings("depreciation")
     private void fillData(){
         Cursor c = mdbHelper.fetchAll();
         getActivity().startManagingCursor(c);
@@ -39,5 +39,5 @@ public class ListeContactsFragment extends ListFragment {
 
     }
 
-    
+
 }

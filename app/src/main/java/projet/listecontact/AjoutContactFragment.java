@@ -84,7 +84,8 @@ public class AjoutContactFragment extends Fragment{
             ad.setCancelable(true);
             // faire apparaître le dialog
             ad.show();
-        } }
+        }
+    }
 
 
 

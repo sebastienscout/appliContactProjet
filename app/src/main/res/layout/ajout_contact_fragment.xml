@@ -10,7 +10,9 @@
         android:background="#ffffff"
         android:orientation="vertical"
         android:layout_gravity="left|top"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:paddingLeft="20px"
+        android:paddingRight="20px">
 
 
         <TextView

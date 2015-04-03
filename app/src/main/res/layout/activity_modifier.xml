@@ -1,6 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" >
 
-</LinearLayout>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="match_parent">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent" android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:orientation="vertical"
+            android:layout_gravity="left|top"
+            android:weightSum="1"
+            android:paddingLeft="30px"
+            android:paddingRight="30px">
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Modifier Contact"
+                android:id="@+id/textView"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:textSize="35dp"
+                android:layout_marginTop="20dp"/><!--//titre-->
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="3dp"
+                android:textColor="#ff5d5d59"
+                android:background="#0077ff"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"></View>
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/nom"
+                android:background="@color/background_floating_material_light"
+                android:textColor="#ff5d5d59"
+                android:singleLine="false"
+                android:selectAllOnFocus="false"
+                android:textCursorDrawable="@drawable/black_cursor"
+                android:hint="Nom"/><!--label nom-->
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/prenom"
+                android:textCursorDrawable="@drawable/black_cursor"
+                android:background="@color/background_floating_material_light"
+                android:textColor="#ff5d5d59"
+                android:hint="Prenom"/><!--label prenom-->
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="3dp"
+                android:textColor="#ff5d5d59"
+                android:background="#0077ff"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"></View>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Telephone : "
+                android:id="@+id/telLabel"
+                android:layout_column="0"
+                android:textColor="#ff5d5d59"/><!--label tel-->
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/telephone"
+                android:background="@color/background_floating_material_light"
+                android:textColor="#ff5d5d59"
+                android:phoneNumber="true"
+                android:height="30dp"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Email : "
+                android:id="@+id/mailLabel"
+                android:textColor="#ff5d5d59" /><!--label email-->
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:textCursorDrawable="@drawable/black_cursor"
+                android:id="@+id/mail"
+                android:background="@color/background_floating_material_light" android:textColor="#ff5d5d59"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Adresse : "
+                android:id="@+id/localLabel"
+                android:textColor="#ff5d5d59" /><!--label rue-->
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:textCursorDrawable="@drawable/black_cursor"
+                android:id="@+id/localisation"
+                android:background="@color/background_floating_material_light"
+                android:textColor="#ff5d5d59"/>
+            <!--label ville-->
+            <!--label cp-->
+
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
+

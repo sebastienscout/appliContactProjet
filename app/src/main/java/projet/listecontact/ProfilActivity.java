@@ -1,9 +1,12 @@
 package projet.listecontact;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -40,14 +43,24 @@ public class ProfilActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_projet, menu);
-        return true;
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_projet, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Bundle extras = getIntent().getExtras();
         switch (item.getItemId()) {
             case R.id.menu_modify:
+                Intent intent = new Intent(this, ModifierActivity.class);
+                intent.putExtra("id", extras.getLong("id"));
+                intent.putExtra("nom", extras.getString("nom"));
+                intent.putExtra("prenom", extras.getString("prenom"));
+                intent.putExtra("tel", extras.getString("tel"));
+                intent.putExtra("mail", extras.getString("mail"));
+                intent.putExtra("adresse", extras.getString("adresse"));
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -77,6 +77,7 @@ public class ListeContactsFragment extends ListFragment {
 
         //Création d'un itent qui passe les valeurs de la BDD à la page profil
         Intent intent = new Intent(getActivity(), ProfilActivity.class);
+        intent.putExtra("id", idl);
         intent.putExtra("nom", nomContactSelected);
         intent.putExtra("prenom", prenomContactSelected);
         intent.putExtra("tel", telContactSelected);

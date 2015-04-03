@@ -16,5 +16,6 @@
     <string name="bouton_recommencer">Recommencer</string>
     <string name="menu_modifier">Modifier</string>
     <string name="enregistrer">Enregistrer</string>
+    <string name="modifier">Modifier contact</string>
 
 </resources>

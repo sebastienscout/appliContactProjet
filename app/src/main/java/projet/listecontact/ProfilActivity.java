@@ -1,12 +1,9 @@
 package projet.listecontact;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 public class ProfilActivity extends Activity {
@@ -38,6 +35,7 @@ public class ProfilActivity extends Activity {
             prenomView.setText(extras.getString("prenom"));
             telView.setText(extras.getString("tel"));
             mailView.setText(extras.getString("mail"));
+            adresseView.setText(extras.getString("adresse"));
         }
     }
 

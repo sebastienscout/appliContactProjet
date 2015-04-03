@@ -1,42 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TableLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"></TableRow>
+</ScrollView>
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginBottom="40dp">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:layout_gravity="left|top"
+        android:weightSum="1">
 
-            <TextView
+
+        <TextView
+            android:layout_width="366dp"
+            android:layout_height="70dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Création Contact"
+            android:id="@+id/textView"
+            android:textColor="#000"
+            android:textAlignment="center"
+            android:textSize="35dp" />
+
+        <View
+               android:layout_width="wrap_content"
+               android:layout_height="1dp"
+               android:textColor="#ff5d5d59"
+            android:background="#000"></View>
+
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Nom : "
-                android:id="@+id/nomLabel" />
+                android:id="@+id/nomLabel"
+                android:textColor="#ff5d5d59"
+                android:layout_marginTop="30dp"
+            android:layout_marginBottom="5dp" />
 
-            <EditText
+        <View
+            android:layout_width="250dp"
+            android:layout_height="2dp"
+            android:textColor="#ff5d5d59"
+            android:background="#a53786ff"></View>
+
+       <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:text="Name"
                 android:ems="10"
                 android:id="@+id/nom"
-                android:layout_column="18" />
+                android:background="#ffd6d6d2"
+                android:textColor="#ff5d5d59"
+                android:singleLine="false"
+                android:selectAllOnFocus="false"
+                android:phoneNumber="false"
+                android:password="false"
+                android:elegantTextHeight="false"
+                android:textCursorDrawable="@drawable/black_cursor"
+                android:layout_marginTop="5dp"
+           android:layout_marginBottom="5dp" />
 
-        </TableRow>
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginBottom="40dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -44,22 +71,27 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Prenom : "
                 android:id="@+id/prenomLabel"
-                android:layout_column="0" />
+                android:textColor="#ff5d5d59"
+                android:layout_marginBottom="5dp" />
+
+        <View
+            android:layout_width="250dp"
+            android:layout_height="2dp"
+            android:textColor="#ff5d5d59"
+            android:background="#a53786ff"></View>
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:text="Name"
                 android:ems="10"
                 android:id="@+id/prenom"
-                android:layout_column="18" />
-        </TableRow>
+                android:textCursorDrawable="@drawable/black_cursor"
+                android:background="#ffd6d6d2"
+                android:textColor="#ff5d5d59"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp" />
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginBottom="40dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -67,7 +99,15 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Telephone : "
                 android:id="@+id/telLabel"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:textColor="#ff5d5d59"
+                android:layout_marginTop="5dp" />
+
+        <View
+            android:layout_width="250dp"
+            android:layout_height="2dp"
+            android:textColor="#ff5d5d59"
+            android:background="#a53786ff"></View>
 
             <EditText
                 android:layout_width="wrap_content"
@@ -75,13 +115,14 @@
                 android:inputType="phone"
                 android:ems="10"
                 android:id="@+id/telephone"
-                android:layout_column="18" />
-        </TableRow>
+                android:textCursorDrawable="@drawable/black_cursor"
+                android:background="#ffd6d6d2"
+                android:textColor="#ff5d5d59"
+                android:phoneNumber="true"
+                android:height="30dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp" />
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginBottom="150dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -89,29 +130,120 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Email : "
                 android:id="@+id/mailLabel"
-                android:layout_column="0" />
+                android:textColor="#ff5d5d59" />
+
+        <View
+            android:layout_width="250dp"
+            android:layout_height="2dp"
+            android:textColor="#ff5d5d59"
+            android:background="#a53786ff"></View>
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:ems="10"
+                android:textCursorDrawable="@drawable/black_cursor"
                 android:id="@+id/mail"
-                android:layout_column="18" />
-        </TableRow>
+                android:background="#ffd6d6d2"
+                android:textColor="#ff5d5d59"
+                android:layout_marginTop="5dp" />
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Adresse : "
+                android:id="@+id/adresseLabel"
+                android:textColor="#ff5d5d59" />
 
-            <Button
+        <View
+            android:layout_width="250dp"
+            android:layout_height="2dp"
+            android:textColor="#ff5d5d59"
+            android:background="#a53786ff"
+            android:width="30dp"></View>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="N ° et rue : "
+                android:id="@+id/localLabel"
+                android:textColor="#ff5d5d59" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:textCursorDrawable="@drawable/black_cursor"
+            android:id="@+id/localisation"
+            android:background="#ffd6d6d2"
+            android:textColor="#ff5d5d59"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="34dp" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Ville : "
+            android:id="@+id/VilleLabel"
+            android:textColor="#ff5d5d59" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:textCursorDrawable="@drawable/black_cursor"
+            android:id="@+id/ville"
+            android:background="#ffd6d6d2"
+            android:textColor="#ff5d5d59"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="80dp" />
+        </LinearLayout>
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Code postal : "
+                android:id="@+id/cpLabel"
+                android:textColor="#ff5d5d59" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:textCursorDrawable="@drawable/black_cursor"
+                android:id="@+id/cp"
+                android:background="#ffd6d6d2"
+                android:textColor="#ff5d5d59"
+                android:layout_marginLeft="5dp" />
+
+        </LinearLayout>
+        <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Creer"
                 android:id="@+id/valider"
                 android:layout_column="0"
                 android:onClick="creation"/>
-        </TableRow>
-    </TableLayout>
 
-</LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

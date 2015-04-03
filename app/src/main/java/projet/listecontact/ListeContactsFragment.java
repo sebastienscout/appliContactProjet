@@ -28,6 +28,8 @@ public class ListeContactsFragment extends ListFragment {
 
     private ContactDbAdapter mdbHelper;
 
+    String nomContactSelected, prenomContactSelected, telContactSelected, mailContactSelected;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,6 +56,14 @@ public class ListeContactsFragment extends ListFragment {
 
 
     public void onListItemClick (ListView l, View v, int position, long id){
+        //On utilise un cursor pour chercher le contact avec l'id recherchée
+        Cursor c = mdbHelper.fetch(id);
+        //Stockage des infos de la BDD dans les variables globales
+        nomContactSelected = c.getString(c.getColumnIndex("_nom"));
+        prenomContactSelected = c.getString(c.getColumnIndex("_prenom"));
+        telContactSelected = c.getString(c.getColumnIndex("_telephone"));
+        mailContactSelected = c.getString(c.getColumnIndex("_email"));
+
         registerForContextMenu(v);
     }
 
@@ -78,6 +88,14 @@ public class ListeContactsFragment extends ListFragment {
         {
             //voir contact
             case 0:
+                //Création d'un itent qui passe les valeurs de la BDD à la page profil
+                Intent intent = new Intent(getActivity(), ProfilActivity.class);
+                intent.putExtra("nom", nomContactSelected);
+                intent.putExtra("prenom", prenomContactSelected);
+                intent.putExtra("tel", telContactSelected);
+                intent.putExtra("mail", mailContactSelected);
+                startActivity(intent);
+                break;
 
             //appeler
             case 1:

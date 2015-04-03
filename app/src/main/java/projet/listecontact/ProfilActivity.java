@@ -1,6 +1,7 @@
 package projet.listecontact;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,34 +22,35 @@ public class ProfilActivity extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Instanciation des Textviews
-        nomView = (TextView)findViewById(R.id.nom);
-        prenomView = (TextView)findViewById(R.id.prenom);
-        telView = (TextView)findViewById(R.id.telephone);
-        mailView = (TextView)findViewById(R.id.mail);
+        nomView = (TextView)findViewById(R.id.profilNom);
+        prenomView = (TextView)findViewById(R.id.profilPrenom);
+        telView = (TextView)findViewById(R.id.profilTelephone);
+        mailView = (TextView)findViewById(R.id.profilMail);
         adresseView = (TextView)findViewById(R.id.profilAdresse);
         villeView = (TextView)findViewById(R.id.profilVille);
         cpView = (TextView)findViewById(R.id.profilCP);
+
+        //On recupère les données passées avec le intent
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            //On donne la valeur de chaque extra à un textView correspondant
+            nomView.setText(extras.getString("nom"));
+            prenomView.setText(extras.getString("prenom"));
+            telView.setText(extras.getString("tel"));
+            mailView.setText(extras.getString("mail"));
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_projet, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        /*int id = item.getItemId();
-        switch(item.getItemId()){
-            case R.id.
-
-        }*/
-        //noinspection SimplifiableIfStatement
-       /* if (id == R.id.action_settings) {
-            return true;
-        }*/
-
         return super.onOptionsItemSelected(item);
     }
+
+
 }

@@ -49,7 +49,7 @@ public class AjoutContactFragment extends Fragment{
 
     //code OK
     public void creation(){
-        mdbHelper.createContact(nom.getText().toString(),prenom.getText().toString(),tel.getText().toString(),email.getText().toString());
+        mdbHelper.createContact(nom.getText().toString(),prenom.getText().toString(),tel.getText().toString(),email.getText().toString(),"");
     }
 
 

@@ -17,7 +17,7 @@
             android:text="Nom"
             android:id="@+id/profilNom"
             android:textSize="32sp"
-            android:textColor="#ff5d5d59"
+            android:textColor="#fffffff8"
             android:layout_marginLeft="30px"
             android:layout_marginTop="20px" />
 
@@ -27,7 +27,7 @@
             android:text="Prénom"
             android:id="@+id/profilPrenom"
             android:textSize="32sp"
-            android:textColor="#ff5d5d59"
+            android:textColor="#ffe0e0d8"
             android:layout_marginLeft="30px"
             android:layout_marginBottom="20px" />
     </LinearLayout>

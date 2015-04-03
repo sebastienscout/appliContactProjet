@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="#fff">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff8baaff">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nom"
+            android:id="@+id/profilNom"
+            android:textSize="32sp"
+            android:textColor="#ff5d5d59"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="20px" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Prénom"
+            android:id="@+id/profilPrenom"
+            android:textSize="32sp"
+            android:textColor="#ff5d5d59"
+            android:layout_marginLeft="30px"
+            android:layout_marginBottom="20px" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:id="@+id/profilSeparator" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="30px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tél. :"
+            android:id="@+id/profilTelephoneLabel"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:layout_marginTop="30px" />
+
+        <View
+        android:layout_width="250dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:id="@+id/profilSeparatorTel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0699811699"
+            android:id="@+id/profilTelephone"
+            android:textColor="#000"
+            android:textSize="15sp"
+            android:layout_marginTop="20px"
+            android:layout_marginLeft="30px" />
+
+        <TextView
+            android:layout_width="115dp"
+            android:layout_height="39dp"
+            android:text="Mail :"
+            android:id="@+id/profilMailLabel"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:layout_marginTop="30px" />
+
+
+        <View
+            android:layout_width="250dp"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:id="@+id/profilSeparatorMail" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="michel@gmail.com"
+            android:id="@+id/profilMail"
+            android:textColor="#000"
+            android:textSize="15sp"
+            android:layout_marginTop="20px"
+            android:layout_marginLeft="30px" />
+
+        <TextView
+            android:layout_width="163dp"
+            android:layout_height="39dp"
+            android:text="Adresse :"
+            android:id="@+id/profilAdresseLabel"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:layout_marginTop="30px" />
+
+
+        <View
+            android:layout_width="250dp"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:id="@+id/profilSeparatorAdresse" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30 rue de la Cathédrale"
+            android:id="@+id/profilAdresse"
+            android:textColor="#000"
+            android:textSize="15sp"
+            android:layout_marginTop="20px"
+            android:layout_marginLeft="30px" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Boulogne"
+            android:id="@+id/profilVille"
+            android:textColor="#000"
+            android:textSize="15sp"
+            android:layout_marginTop="20px"
+            android:layout_marginLeft="30px" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="62200"
+            android:id="@+id/profilCP"
+            android:textColor="#000"
+            android:textSize="15sp"
+            android:layout_marginTop="20px"
+            android:layout_marginLeft="30px" />
+    </LinearLayout>
+
+</LinearLayout>

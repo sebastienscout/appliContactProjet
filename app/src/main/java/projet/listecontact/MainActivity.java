@@ -3,6 +3,7 @@ package projet.listecontact;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,8 +18,6 @@ public class MainActivity extends Activity {
 
     Fragment listeContactsFragment = new ListeContactsFragment();
     Fragment ajoutContactFragment = new AjoutContactFragment();
-
-
 
     @SuppressWarnings("deprecation")
     @Override
@@ -39,14 +38,7 @@ public class MainActivity extends Activity {
         tabAjoutContact = actionBar.newTab().setText("Ajouter contact");
         tabAjoutContact.setTabListener(new TabListener(ajoutContactFragment));
         actionBar.addTab(tabAjoutContact);
-
-
-
     }
-
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,11 +49,14 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        /*int id = item.getItemId();
+        int id = item.getItemId();
         switch(item.getItemId()){
-            case R.id.
+            case R.id.menu_about:
+                Intent intent = new Intent(MainActivity.this, ProfilActivity.class);
+                startActivity(intent);
+                break;
 
-        }*/
+        }
         //noinspection SimplifiableIfStatement
        /* if (id == R.id.action_settings) {
             return true;
@@ -69,7 +64,5 @@ public class MainActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
 
 }

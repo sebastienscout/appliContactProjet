@@ -48,16 +48,8 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch(item.getItemId()){
-            case R.id.menu_about:
-                Intent intent = new Intent(MainActivity.this, ProfilActivity.class);
-                startActivity(intent);
-                break;
 
         }
-        //noinspection SimplifiableIfStatement
-       /* if (id == R.id.action_settings) {
-            return true;
-        }*/
 
         return super.onOptionsItemSelected(item);
     }
